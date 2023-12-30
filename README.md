@@ -3,16 +3,16 @@ ney-PE64-parser
 
  this is a small pe64 file analyzer in c++ with winapi, I didn't do it in the best way but hey, it's a small project like that that I thought was nice to do, the program can work in it calling with arguments or executing it as such.
 
-##dependancies
+## dependancies
 you just need to have winapi and cmake
 
-###install Cmake
+### install Cmake
   * Debian/Ubuntu: `sudo apt-get install cmake`
   * RedHat/Fedora: `sudo yum install cmake`
   * OSX: `brew install cmake`
   * Windows : `https://cmake.org/download/`
 
-#output
+#### output
 ```
 PS C:\code\cpp\neyPe64 parser> cmake-build-debug/ney.exe "C:\code\cpp\peipeiy PE64 extcrte\cmake-build-debug\libpe64.dll"
 
