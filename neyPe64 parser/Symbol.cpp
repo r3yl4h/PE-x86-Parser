@@ -29,7 +29,7 @@ void symbole(HANDLE hFile) {
         std::cout << "Type: " << modInfo.SymType << "\n" << std::endl;
 
         if (!SymEnumSymbols(hProc, baseAddr, nullptr, [](PSYMBOL_INFO pInfo, ULONG Size, PVOID Context) -> BOOL {
-            std::cout << "Name: " << pInfo->Name << std::endl;
+            std::cout << "Symbol Name: " << pInfo->Name << std::endl;
             std::cout << "Address: 0x" << std::hex << pInfo->Address << std::dec << std::endl;
             std::cout << "Size: " << pInfo->Size << " bytes" << std::endl;
             std::cout << std::endl;
