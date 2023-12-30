@@ -18,7 +18,6 @@ HANDLE open(const CHAR* path, int argc, char* argv[]) {
             main(argc, argv);
         }
     }
-
     return hFile;
 }
 
