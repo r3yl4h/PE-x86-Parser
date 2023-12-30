@@ -5,8 +5,6 @@ ney-PE64-parser
 
 ## dependancies
 you just need to have winapi and cmake
-
-### install Cmake
   * Debian/Ubuntu: `sudo apt-get install cmake`
   * RedHat/Fedora: `sudo yum install cmake`
   * OSX: `brew install cmake`
