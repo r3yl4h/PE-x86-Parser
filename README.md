@@ -52,8 +52,8 @@ Optional Header:
   Minor Image Version: 0
   Minor Operating System Version: 0
   Architecture: 64-bit
-
-
+```
+```
 Section: .text
    Virtual Size: 21176 bytes (0.020 MB)
    RVA: 0x1000
@@ -163,9 +163,9 @@ Section: .reloc
    Section Type: Initialized Data
    Section Flags: 0x42000040
    Base Relocation Table RVA: 0x10000
+```
 
-
-
+```
 Import Table Address: 0x3a658d000
 Import Table:
         Address: 0x3a658d4e8                    DLL: dbghelp.dll                Function: SymCleanup
@@ -305,7 +305,8 @@ Export Table:
                 Address: 0x3a65814f0            Ordinal: 61             Function: idata
                 Address: 0x3a65813a3            Ordinal: 62             Function: pathfile
                 Address: 0x3a6583fb9            Ordinal: 63             Function: symbol
-
+```
+```
 Module: 
 Base: 0x3a6580000
 Size: 323584 bytes
