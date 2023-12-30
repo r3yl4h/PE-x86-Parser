@@ -235,8 +235,8 @@ Import Table:
                 Address: 0x3a658db70                    DLL: libstdc++-6.dll            Function: _Znwy
                 Address: 0x3a658db78                    DLL: libstdc++-6.dll            Function: __gxx_personality_seh0
         Number of Functions: 66
-
-
+```
+```
 Export Table Address: 0x3a658c000
 Export Table:
         DLL Name: libpe64.dll
