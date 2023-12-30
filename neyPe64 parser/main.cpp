@@ -31,19 +31,20 @@ int main(int argc, char* argv[]) {
         paths = argv[1];
     } else {
         if (showMsg) {
-            cout << " __   __                                                     _ \n"
+            cout << MAGENTA << "\n __   __                                                     _ \n"
                     " \\ \\ / /  _   _   _ __     __ _   _ __ ___     __ _   _ __  (_)\n"
                     "  \\ V /  | | | | | '_ \\   / _` | | '_ ` _ \\   / _` | | '__| | |\n"
                     "   | |   | |_| | | | | | | (_| | | | | | | | | (_| | | |    | |\n"
-                    "   |_|    \\__,_| |_| |_|  \\__,_| |_| |_| |_|  \\__,_| |_|    |_|" << "\n\n";
+                    "   |_|    \\__,_| |_| |_|  \\__,_| |_| |_| |_|  \\__,_| |_|    |_|" << "\n\n\n";
 
-            cout << "hi, this is a small pe file analyzer. I know I don't have the best codes, but hey, I hope this little script will still help you in one way or another. Don't hesitate to join the discord server:\n"
-                    "https://discord.gg/420sec, my discord username is \"lunapeiy\"" << endl;
+            cout << "hi, this is a small pe file analyzer. Don't hesitate to join the discord server:\n"
+                    "https://discord.gg/420sec, my discord username is \"lunapeiy\"" << RESET << endl;
             showMsg = false;
         }
 
-        cout << "\nEnter the path of your PE file: ";
+        cout << GREEN << "\nEnter the path of your PE file: " ;
         getline(cin, paths);
+        cout << RESET;
         if (paths == "exit"|| paths == "q"|| paths == "quit" || paths.empty()) {
             cout << "goodbye" << endl;
             return 0;
