@@ -18,6 +18,7 @@ HANDLE open(const CHAR* path, int argc, char* argv[]) {
             main(argc, argv);
         }
     }
+
     return hFile;
 }
 
@@ -25,6 +26,7 @@ HANDLE open(const CHAR* path, int argc, char* argv[]) {
 
 int main(int argc, char* argv[]) {
     string paths;
+    bool symbol = false;
 
     if (argc > 1) {
         paths = argv[1];
@@ -49,6 +51,13 @@ int main(int argc, char* argv[]) {
             return 0;
         }
         paths.erase(remove(paths.begin(), paths.end(), '\"'), paths.end());
+
+        string test;
+        cout << "print the symbol [y/n]?: ";
+        getline(cin, test);
+        if (test == "y"|| test== "true"|| test == "yes" || test=="oui"){
+            symbol = true;
+        }
     }
 
 
@@ -59,9 +68,10 @@ int main(int argc, char* argv[]) {
     HANDLE hFile = open(path, argc, argv);
 
     header(hFile);
-    idata(hFile);
+    idata(path);
     edata(path);
-    symbole(hFile);
+    if (symbol)
+        symbole(hFile);
     psI(hFile);
 
     delete[] path;
