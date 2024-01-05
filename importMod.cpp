@@ -53,7 +53,7 @@ void idata(const CHAR* path) {
                         auto funcAddr = thunkData->u1.Function + optHeader64->ImageBase;
 
                         if(addrid){
-                            auto baseIdata = funcAddr & 0xFFFFF000;
+                            auto baseIdata = funcAddr & 0xFFFFFFFFFFFFF000;
                             std::cout << "\nImport Table Address: 0x" << std::hex << std::setw(8) << std::setfill('0') << baseIdata << std::dec << std::endl;
                             std::cout << std::dec << std::setw(0) << std::setfill(' ');
                             std::cout << "Import Table:\n";
