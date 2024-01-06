@@ -1,9 +1,10 @@
 #include <iostream>
 #include <windows.h>
 #include <iomanip>
+#include <llvm/Demangle/Demangle.h>
 #include "peh.hpp"
 
-void idata(const CHAR* path) {
+void idata(const CHAR* path, bool dem) {
     bool addrid = true;
     HANDLE hFile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
 
@@ -45,23 +46,31 @@ void idata(const CHAR* path) {
 
 
                     while (thunkData->u1.AddressOfData != 0) {
-                        const char* funcName = nullptr;
+                        char* funcName = nullptr;
                         if (!(thunkData->u1.Ordinal & IMAGE_ORDINAL_FLAG64)) {
                             auto importByName = reinterpret_cast<PIMAGE_IMPORT_BY_NAME>(fileContent + thunkData->u1.AddressOfData - sectionHeader[i].VirtualAddress + sectionHeader[i].PointerToRawData);
                             funcName = importByName->Name;
                         }
                         auto funcAddr = thunkData->u1.Function + optHeader64->ImageBase;
 
-                        if(addrid){
+                        if (addrid) {
                             auto baseIdata = funcAddr & 0xFFFFFFFFFFFFF000;
                             std::cout << "\nImport Table Address: 0x" << std::hex << std::setw(8) << std::setfill('0') << baseIdata << std::dec << std::endl;
                             std::cout << std::dec << std::setw(0) << std::setfill(' ');
                             std::cout << "Import Table:\n";
                             addrid = false;
                         }
+                        char* func;
+                        if(dem){
+                            int status;
+                            func = llvm::itaniumDemangle(funcName, nullptr, nullptr, &status);
+                        }else{
+                            func = funcName;
+                        }
+
 
                         std::cout << "\tAddress: 0x" << std::hex << funcAddr << std::dec << std::setw(20)
-                                  << "\tDLL: " << dllName << std::setw(20) << " \tFunction: " << (funcName ? funcName : "Ordinal") << std::setw(20) << std::endl;
+                                  << "\tDLL: " << dllName << std::setw(20) << " \tFunction: " << (func ? func : (funcName ? funcName : "Ordinal")) << std::setw(20) << std::endl;
 
                         ++thunkData;
                         ++functionCount;
