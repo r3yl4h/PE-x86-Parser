@@ -1,9 +1,10 @@
 #include <iostream>
 #include <iomanip>
 #include <windows.h>
+#include <llvm/Demangle/Demangle.h>
 #include "peh.hpp"
 
-void edata(const CHAR* path) {
+void edata(const CHAR* path, bool dem) {
     HANDLE hFile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
 
     if (hFile == INVALID_HANDLE_VALUE){
@@ -48,10 +49,20 @@ void edata(const CHAR* path) {
                 auto* addrNames = reinterpret_cast<DWORD*>(fileContent + exportDir->AddressOfNames - sectionHeader[i].VirtualAddress + sectionHeader[i].PointerToRawData);
 
                 for (DWORD j = 0; j < exportDir->NumberOfNames; ++j) {
+
                     DWORD functionRVA = addrFunc[addrOrd[j]];
+                    char* funcN = const_cast<char*>(reinterpret_cast<const char *>(fileContent + addrNames[j] -sectionHeader[i].VirtualAddress + sectionHeader[i].PointerToRawData));
+                    char* func;
+                    if(dem){
+                        int status;
+                        func = llvm::itaniumDemangle(funcN, nullptr, nullptr, &status);
+                    }else{
+                        func = funcN;
+                    }
+
                     std::cout << "\tAddress: 0x" << std::hex << optHeader64->ImageBase + functionRVA << std::dec << std::setw(20)
                               << "\tOrdinal: " << addrOrd[j] + exportDir->Base << std::setw(20)
-                              << " \tFunction: " << reinterpret_cast<const char*>(fileContent + addrNames[j] - sectionHeader[i].VirtualAddress + sectionHeader[i].PointerToRawData) << std::setw(20) << std::endl;
+                              << " \tFunction: " << (func ? func : (funcN ? funcN : "Ordinal"))  << std::setw(20) << std::endl;
                 }
                 break;
             }
