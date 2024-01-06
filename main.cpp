@@ -27,6 +27,7 @@ HANDLE open(const CHAR* path, int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
     string paths;
     bool symbol = false;
+    bool demangle = false;
 
     if (argc > 1) {
         paths = argv[1];
@@ -58,6 +59,14 @@ int main(int argc, char* argv[]) {
         if (test == "y"|| test== "true"|| test == "yes" || test=="oui"){
             symbol = true;
         }
+
+        string demangled;
+        cout << "demangle function [y/n]?: ";
+        getline(cin, demangled);
+        if (demangled == "y" || demangled=="true"||demangled == "yes") {
+            demangle = true;
+        }
+
     }
 
 
@@ -68,8 +77,8 @@ int main(int argc, char* argv[]) {
     HANDLE hFile = open(path, argc, argv);
 
     header(hFile);
-    idata(path);
-    edata(path);
+    idata(path, demangle);
+    edata(path, demangle);
     if (symbol)
         symbole(hFile);
     psI(hFile);
