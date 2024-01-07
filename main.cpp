@@ -69,10 +69,7 @@ int main(int argc, char* argv[]) {
 
     }
 
-
-    const int size = paths.length();
-    char* path = new char[size + 1];
-    strcpy(path, paths.c_str());
+    const char *path = paths.c_str();
 
     HANDLE hFile = open(path, argc, argv);
 
