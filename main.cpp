@@ -31,7 +31,10 @@ int main(int argc, char* argv[]) {
 
     if (argc > 1) {
         paths = argv[1];
-    } else {
+    }
+
+
+    else {
         if (showMsg) {
             cout << MAGENTA << "\n __   __                                                     _ \n"
                                " \\ \\ / /  _   _   _ __     __ _   _ __ ___     __ _   _ __  (_)\n"
@@ -79,8 +82,8 @@ int main(int argc, char* argv[]) {
     if (symbol)
         symbole(hFile);
     psI(hFile);
-
-    delete[] path;
+    
+    
     CloseHandle(hFile);
     cout << "\n" << endl;
 
