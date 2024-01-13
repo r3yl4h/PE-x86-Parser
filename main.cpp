@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         string test;
         cout << "print the symbol [y/n]?: ";
         getline(cin, test);
-        if (test == "y"|| test== "true"|| test == "yes" || test=="oui"){
+        if (test == "y"|| test== "true"|| test == "yes"){
             symbol = true;
         }
 
