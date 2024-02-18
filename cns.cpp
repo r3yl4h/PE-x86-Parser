@@ -32,9 +32,6 @@ void psI(HANDLE hFile) {
         std::cout << "  Certificate Type: " << certData->wCertificateType << "\n";
         std::cout << "  Certificate Length: " << certData->dwLength << "\n";
         std::cout << "  Certificate Revision: " << certData->wRevision << std::endl;
-    } else {
-        // Security information not found
     }
-
     delete[] fileContent;
 }
