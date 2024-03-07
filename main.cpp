@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
     cout << "\n" << endl;
 
 
-    if (argc == 1 || argc < 1) {
+    if (argc < 1) {
         main(argc, argv);
     }
 
