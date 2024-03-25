@@ -55,9 +55,10 @@ Optional Header:
 ```
 ```
 Section: .text
+   Virtual adress : 0x4096
    Virtual Size: 130264 bytes (0.124 MB)
    RVA: 0x1000
-   Offset: 0x600 
+   Offset of raw data: 0x600 
    Raw Size: 130560 bytes (0.125 MB)
    Section Characteristics: Executable Readable 
    Section Type: Code Initialized Data 
@@ -65,9 +66,10 @@ Section: .text
    Base Relocation Table RVA: 0x30000
 
 Section: .data
+   Virtual adress : 0x135168
    Virtual Size: 160 bytes (0.000 MB)
    RVA: 0x21000
-   Offset: 0x20400 
+   Offset of raw data: 0x20400 
    Raw Size: 512 bytes (0.000 MB)
    Section Characteristics: Readable Writable 
    Section Type: Initialized Data 
@@ -75,9 +77,10 @@ Section: .data
    Base Relocation Table RVA: 0x30000
 
 Section: .rdata
+   Virtual adress : 0x139264
    Virtual Size: 20236 bytes (0.019 MB)
    RVA: 0x22000
-   Offset: 0x20600 
+   Offset of raw data: 0x20600 
    Raw Size: 20480 bytes (0.020 MB)
    Section Characteristics: Readable 
    Section Type: Initialized Data 
@@ -85,9 +88,10 @@ Section: .rdata
    Base Relocation Table RVA: 0x30000
 
 Section: .pdata
+   Virtual adress : 0x159744
    Virtual Size: 4236 bytes (0.004 MB)
    RVA: 0x27000
-   Offset: 0x25600 
+   Offset of raw data: 0x25600 
    Raw Size: 4608 bytes (0.004 MB)
    Section Characteristics: Readable 
    Section Type: Initialized Data 
@@ -95,9 +99,10 @@ Section: .pdata
    Base Relocation Table RVA: 0x30000
 
 Section: .xdata
+   Virtual adress : 0x167936
    Virtual Size: 4768 bytes (0.005 MB)
    RVA: 0x29000
-   Offset: 0x26800 
+   Offset of raw data: 0x26800 
    Raw Size: 5120 bytes (0.005 MB)
    Section Characteristics: Readable 
    Section Type: Initialized Data 
@@ -105,9 +110,10 @@ Section: .xdata
    Base Relocation Table RVA: 0x30000
 
 Section: .bss
+   Virtual adress : 0x176128
    Virtual Size: 2832 bytes (0.003 MB)
    RVA: 0x2b000
-   Offset: 0x0 
+   Offset of raw data: 0x0 
    Raw Size: 0 bytes (0.000 MB)
    Section Characteristics: Readable Writable 
    Section Type: Uninitialized Data 
@@ -115,9 +121,10 @@ Section: .bss
    Base Relocation Table RVA: 0x30000
 
 Section: .edata
+   Virtual adress : 0x180224
    Virtual Size: 91 bytes (0.000 MB)
    RVA: 0x2c000
-   Offset: 0x27c00 
+   Offset of raw data: 0x27c00 
    Raw Size: 512 bytes (0.000 MB)
    Section Characteristics: Readable 
    Section Type: Initialized Data 
@@ -125,9 +132,10 @@ Section: .edata
    Base Relocation Table RVA: 0x30000
 
 Section: .idata
+   Virtual adress : 0x184320
    Virtual Size: 3600 bytes (0.003 MB)
    RVA: 0x2d000
-   Offset: 0x27e00 
+   Offset of raw data: 0x27e00 
    Raw Size: 4096 bytes (0.004 MB)
    Section Characteristics: Readable Writable 
    Section Type: Initialized Data 
@@ -135,9 +143,10 @@ Section: .idata
    Base Relocation Table RVA: 0x30000
 
 Section: .CRT
+   Virtual adress : 0x188416
    Virtual Size: 88 bytes (0.000 MB)
    RVA: 0x2e000
-   Offset: 0x28e00 
+   Offset of raw data: 0x28e00 
    Raw Size: 512 bytes (0.000 MB)
    Section Characteristics: Readable Writable 
    Section Type: Initialized Data 
@@ -145,9 +154,10 @@ Section: .CRT
    Base Relocation Table RVA: 0x30000
 
 Section: .tls
+   Virtual adress : 0x192512
    Virtual Size: 16 bytes (0.000 MB)
    RVA: 0x2f000
-   Offset: 0x29000 
+   Offset of raw data: 0x29000 
    Raw Size: 512 bytes (0.000 MB)
    Section Characteristics: Readable Writable 
    Section Type: Initialized Data 
@@ -155,9 +165,10 @@ Section: .tls
    Base Relocation Table RVA: 0x30000
 
 Section: .reloc
+   Virtual adress : 0x196608
    Virtual Size: 2320 bytes (0.002 MB)
    RVA: 0x30000
-   Offset: 0x29200 
+   Offset of raw data: 0x29200 
    Raw Size: 2560 bytes (0.002 MB)
    Section Characteristics: Readable 
    Section Type: Initialized Data 
