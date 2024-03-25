@@ -52,8 +52,6 @@ void PrintHead(const PIMAGE_OPTIONAL_HEADER64 optionalHeader) {
 
 
 
-
-
 void header(HANDLE hFile) {
     SetFilePointer(hFile, 0, nullptr, FILE_BEGIN);
     DWORD fileSize = GetFileSize(hFile, nullptr);
@@ -71,8 +69,10 @@ void header(HANDLE hFile) {
     if (dosHdr->e_magic == IMAGE_DOS_SIGNATURE && dosHdr->e_lfanew != 0) {
         auto ntHdrs = reinterpret_cast<PIMAGE_NT_HEADERS>(fileContent + dosHdr->e_lfanew);
         PIMAGE_OPTIONAL_HEADER64 optHead64 = &ntHdrs->OptionalHeader;
+        DWORD entryptr = ntHdrs->OptionalHeader.AddressOfEntryPoint;
 
         std::cout << "\nHeader:\n";
+        std::cout << "Address of WinMain: 0x" << std::hex << entryptr + optHead64->ImageBase << std::dec << "\n";
         std::cout << "  Machine: 0x" << std::hex << ntHdrs->FileHeader.Machine << std::dec << "\n";
         std::cout << "  TimeDateStamp: 0x" << std::hex << ntHdrs->FileHeader.TimeDateStamp << std::dec << " (UTC)\n";
         std::cout << "  DOS Signature: 0x" << std::hex << dosHdr->e_magic << std::dec << "\n";
@@ -89,10 +89,11 @@ void header(HANDLE hFile) {
             for (int i = 0; i < ntHdrs->FileHeader.NumberOfSections; ++i) {
                 PIMAGE_SECTION_HEADER section = IMAGE_FIRST_SECTION(ntHdrs) + i;
                 std::cout << "\nSection: " << section->Name << std::endl;
+                std::cout << "   Virtual adress : 0x" << std::dec << section->VirtualAddress << std::dec << std::endl;
                 std::cout << "   Virtual Size: " << section->Misc.VirtualSize << " bytes (" << std::fixed << std::setprecision(3)
                           << static_cast<double>(section->Misc.VirtualSize) / (1024 * 1024) << " MB)\n";
                 std::cout << "   RVA: 0x" << std::hex << section->VirtualAddress << std::dec << std::endl;
-                std::cout << "   Offset: " << section->PointerToRawData << " bytes\n";
+                std::cout << "   Offset of raw data: 0x" << std::hex << section->PointerToRawData << std::dec << " \n";
                 std::cout << "   Raw Size: " << section->SizeOfRawData << " bytes (" << std::fixed << std::setprecision(3)
                           << static_cast<double>(section->SizeOfRawData) / (1024 * 1024) << " MB)\n";
                 std::cout << "   Section Characteristics: ";
