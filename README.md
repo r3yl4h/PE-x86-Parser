@@ -4,11 +4,13 @@ ney-PE64-parser
  this is a small pe64 file analyzer in c++ with winapi, I didn't do it in the best way but hey, it's a small project like that that I thought was nice to do, the program can work in it calling with arguments or executing it as such.
 
 ## dependancies
-you just need to have winapi and cmake
+you just need to have winapi, cmake and DIA SDK
   * Unix:  `sudo apt-get install cmake`
   * RedHat/Fedora:  `sudo yum install cmake`
   * OSX:  `brew install cmake`
   * Windows : https://cmake.org/download/
+  * 
+and for dia you will just need to include the dia sdk include path to the cmakelist file which is generally located at the path: `C:/Program Files/Microsoft Visual Studio/2022/Professional/DIA SDK/include`
 
 ## screenshot
 
