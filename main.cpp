@@ -8,7 +8,7 @@ using namespace std;
 bool showMsg = true;
 
 
-HANDLE open(const CHAR* path, int argc, char* argv[]) {
+HANDLE open(const char* path, int argc, char* argv[]) {
     HANDLE hFile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (hFile == INVALID_HANDLE_VALUE){
         CloseHandle(hFile);
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         string test;
         cout << "print the symbol [y/n]?: ";
         getline(cin, test);
-        if (test == "y"|| test== "true"|| test == "yes"){
+        if (test == "y"|| test== "true"|| test == "yes" || test=="oui"){
             symbol = true;
         }
 
@@ -71,22 +71,19 @@ int main(int argc, char* argv[]) {
         }
 
     }
-
     const char *path = paths.c_str();
-
     HANDLE hFile = open(path, argc, argv);
 
     header(hFile);
     idata(path, demangle);
     edata(path, demangle);
+
     if (symbol)
-        symbole(hFile);
+     symbole(path);
     psI(hFile);
-    
-    
+
     CloseHandle(hFile);
     cout << "\n" << endl;
-
 
     if (argc < 1) {
         main(argc, argv);
