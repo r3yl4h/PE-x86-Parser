@@ -79,7 +79,7 @@ int main(int argc, char* argv[]) {
     edata(path, demangle);
 
     if (symbol)
-     symbole(path);
+     symbole(hFile);
     psI(hFile);
 
     CloseHandle(hFile);
