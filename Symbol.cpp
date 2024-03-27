@@ -1,7 +1,79 @@
 #include <iostream>
 #include <windows.h>
 #include <dbghelp.h>
+#include <dia2.h>
 #include "peh.hpp"
+
+
+const char* GetTagString(DWORD tag) {
+    switch (tag) {
+        case SymTagNull:
+            return "SymTagNull";
+        case SymTagExe:
+            return "SymTagExe";
+        case SymTagCompiland:
+            return "SymTagCompiland";
+        case SymTagCompilandDetails:
+            return "SymTagCompilandDetails";
+        case SymTagCompilandEnv:
+            return "SymTagCompilandEnv";
+        case SymTagFunction:
+            return "SymTagFunction";
+        case SymTagBlock:
+            return "SymTagBlock";
+        case SymTagData:
+            return "SymTagData";
+        case SymTagAnnotation:
+            return "SymTagAnnotation";
+        case SymTagLabel:
+            return "SymTagLabel";
+        case SymTagPublicSymbol:
+            return "SymTagPublicSymbol";
+        case SymTagUDT:
+            return "SymTagUDT";
+        case SymTagEnum:
+            return "SymTagEnum";
+        case SymTagFunctionType:
+            return "SymTagFunctionType";
+        case SymTagPointerType:
+            return "SymTagPointerType";
+        case SymTagArrayType:
+            return "SymTagArrayType";
+        case SymTagBaseType:
+            return "SymTagBaseType";
+        case SymTagTypedef:
+            return "SymTagTypedef";
+        case SymTagBaseClass:
+            return "SymTagBaseClass";
+        case SymTagFriend:
+            return "SymTagFriend";
+        case SymTagFunctionArgType:
+            return "SymTagFunctionArgType";
+        case SymTagFuncDebugStart:
+            return "SymTagFuncDebugStart";
+        case SymTagFuncDebugEnd:
+            return "SymTagFuncDebugEnd";
+        case SymTagUsingNamespace:
+            return "SymTagUsingNamespace";
+        case SymTagVTableShape:
+            return "SymTagVTableShape";
+        case SymTagVTable:
+            return "SymTagVTable";
+        case SymTagCustom:
+            return "SymTagCustom";
+        case SymTagThunk:
+            return "SymTagThunk";
+        case SymTagCustomType:
+            return "SymTagCustomType";
+        case SymTagManagedType:
+            return "SymTagManagedType";
+        case SymTagDimension:
+            return "SymTagDimension";
+        default:
+            return "Unknown";
+    }
+}
+
 
 void symbole(HANDLE hFile) {
     if (!SymInitialize(GetCurrentProcess(), nullptr, TRUE)) {
@@ -32,6 +104,7 @@ void symbole(HANDLE hFile) {
             std::cout << "Name: " << pInfo->Name << std::endl;
             std::cout << "Address: 0x" << std::hex << pInfo->Address << std::dec << std::endl;
             std::cout << "Size: " << pInfo->Size << " bytes" << std::endl;
+            std::cout << "tag : " << GetTagString(pInfo->Tag) << std::endl;
             std::cout << std::endl;
             return TRUE;
         }, nullptr)) {
