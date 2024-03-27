@@ -5,6 +5,9 @@ set(CMAKE_CXX_STANDARD 23)
 find_package(LLVM REQUIRED CONFIG)
 include_directories(${LLVM_INCLUDE_DIRS})
 add_definitions(${LLVM_DEFINITIONS})
+set(DIA_SDK_PATH "C:/Program Files/Microsoft Visual Studio/2022/Professional/DIA SDK")
+include_directories("${DIA_SDK_PATH}/include")
+link_directories("${DIA_SDK_PATH}/bin/amd64")
 
 
 add_executable(neyPe64_parser
