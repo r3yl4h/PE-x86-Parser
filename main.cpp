@@ -14,7 +14,7 @@ HANDLE open(const char* path, int argc, char* argv[]) {
         CloseHandle(hFile);
         delete[] path;
         cout << "the file does not exist or we were unable to open it" << endl;
-        if (argc == 1 || argc < 1) {
+        if (argc == 1) {
             main(argc, argv);
         }
     }
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
     CloseHandle(hFile);
     cout << "\n" << endl;
 
-    if (argc < 1) {
+    if (argc == 1) {
         main(argc, argv);
     }
 
