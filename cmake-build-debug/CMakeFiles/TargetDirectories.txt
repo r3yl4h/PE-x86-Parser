@@ -1,7 +1,0 @@
-C:/code/cpp/neyPe64 parser/cmake-build-debug/CMakeFiles/intrinsics_gen.dir
-C:/code/cpp/neyPe64 parser/cmake-build-debug/CMakeFiles/omp_gen.dir
-C:/code/cpp/neyPe64 parser/cmake-build-debug/CMakeFiles/acc_gen.dir
-C:/code/cpp/neyPe64 parser/cmake-build-debug/CMakeFiles/RISCVTargetParserTableGen.dir
-C:/code/cpp/neyPe64 parser/cmake-build-debug/CMakeFiles/neyPe64_parser.dir
-C:/code/cpp/neyPe64 parser/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/code/cpp/neyPe64 parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
