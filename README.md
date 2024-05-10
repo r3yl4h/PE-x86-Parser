@@ -11,7 +11,7 @@ you just need to have winapi, cmake and DIA SDK
   * OSX:  `brew install cmake`
   * Windows : https://cmake.org/download/
  ### Dia2:
- * Dia2: `https://learn.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/getting-started-debug-interface-access-sdk?view=vs-2022`
+ * https://learn.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/getting-started-debug-interface-access-sdk?view=vs-2022
  
 and for dia you will just need to include the dia sdk include path to the cmakelist file which is generally located at the path: `C:/Program Files/Microsoft Visual Studio/2022/Professional/DIA SDK/include`
 
