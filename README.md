@@ -1,7 +1,7 @@
 PE-x64-parser
 ========
 
- this is a small pe64 file analyzer in c++ with winapi, I didn't do it in the best way but hey, it's a small project like that that I thought was nice to do, the program can work in it calling with arguments or executing it as such.
+ this is a small pe32 and pe64 file analyzer in c++ with winapi, I didn't do it in the best way but hey, it's a small project like that that I thought was nice to do, the program can work in it calling with arguments or executing it as such.
 (each file contains a code between unique quotes, this is why certain variables are redefined each time)
 ## dependancies
 you just need to have winapi, cmake and DIA SDK
