@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
     if (inp == "yes"|| inp == "y")
         get_symbole(path.c_str());
 
-    if (argc == 1) {
+    if (argc == 0) {
         main(argc, argv);
     }
     return 0;
