@@ -9,572 +9,227 @@ you just need to have winapi, cmake and DIA SDK
   * RedHat/Fedora:  `sudo yum install cmake`
   * OSX:  `brew install cmake`
   * Windows : https://cmake.org/download/
-  * 
+
 and for dia you will just need to include the dia sdk include path to the cmakelist file which is generally located at the path: `C:/Program Files/Microsoft Visual Studio/2022/Professional/DIA SDK/include`
 
-## screenshot
-
-![Texte alternatif](screenshot.png)
-
 ## output
+## dos header
 ```
-PS C:\code\cpp\neyPe64 parser> cmake-build-debug/ney.exe "C:\code\cpp\peipeiy PE64 extcrte\cmake-build-debug\libpe64.dll"
-
-Header:
-  Machine: 0x8664
-  TimeDateStamp: 0x658c93d7 (UTC)
-  DOS Signature: 0x5a4d
-  PE Signature: 0x4550
-  Base image address: 0x3a6580000
-  Number of sections: 20
-  File header size: 240 bytes
-  Subsystem version: 5.2
-  Characteristics of the DLL: DLL
-
-Optional Header:
-  Magic: 20b
-  AddressOfEntryPoint: 0x1330
-  SectionAlignment: 0x1000
-  FileAlignment: 0x200
-  SizeOfImage: 323584 bytes (0.309 MB)
-  SizeOfHeaders: 1536 bytes (0.001 MB)
-  SizeOfCode: 21504 bytes (0.021 MB)
-  SizeOfInitializedData: 37888 bytes (0.036 MB)
-  SizeOfUninitializedData: 512 bytes (0.000 MB)
-  BaseOfCode: 0x1000
-  DllCharacteristics: 0x160
-  SizeOfStackReserve: 2097152 bytes (2.000 MB)
-  SizeOfStackCommit: 4096 bytes (0.004 MB)
-  SizeOfHeapReserve: 1048576 bytes (1.000 MB)
-  SizeOfHeapCommit: 4096 bytes (0.004 MB)
-  Major Linker Version: 2
-  Major Image Version: 0
-  Major subsystem version: 5
-  Minor Linker Version: 28
-  Minor Image Version: 0
-  Minor Operating System Version: 0
-  Architecture: 64-bit
+C:\code\cpp\Pe_x86_parser\cmake-build-debug>.\Pe_x86_parser "C:\code\cpp\nrc project cnsl cpp\cmake-build-debug\nrc_project_cnsl_cpp.exe"
+DOS HEADER:
+0x00: (uint16_t) Magic Number MZ: 0x5a4d
+0x02: (uint16_t) Bytes on last page of file: 90
+0x04: (uint16_t) Pages in file: 3
+0x06: (uint16_t) Relocations: 0
+0x08: (uint16_t) Size of header in paragraphs: 4
+0x0a: (uint16_t) Minimum extra paragraphs needed: 0
+0x0c: (uint16_t) Maximum extra paragraphs needed: ffff
+0x0e: (uint16_t) Initial ss value: 0
+0x10: (uint16_t) e_sp: Initial SP value: b8
+0x12: (uint16_t) Checksum: 0
+0x14: (uint16_t) Initial ip value: 0
+0x16: (uint16_t) Initial cs value: 0
+0x18: (uint16_t) File address of relocation table: 40
+0x1a: (uint16_t) e_ovno: Overlay number: 0
+0x1c: (uint16_t[4]) Reserved words: 0 0 0 0
+0x24: (uint16_t) OEM identifier: 0
+0x26: (uint16_t) e_oeminfo: OEM information: 0
+0x28: (uint16[10]) Reserved words2: 0 0 0 0 0 0 0 0 0 0
+0x3c: (uint32_t) Pe header address: 0x80
 ```
+## file header
 ```
-Section: .text
-   Virtual adress : 0x4096
-   Virtual Size: 130264 bytes (0.124 MB)
-   RVA: 0x1000
-   Offset of raw data: 0x600 
-   Raw Size: 130560 bytes (0.125 MB)
-   Section Characteristics: Executable Readable 
-   Section Type: Code Initialized Data 
-   Section Flags: 0x60000060
-   Base Relocation Table RVA: 0x30000
-
-Section: .data
-   Virtual adress : 0x135168
-   Virtual Size: 160 bytes (0.000 MB)
-   RVA: 0x21000
-   Offset of raw data: 0x20400 
-   Raw Size: 512 bytes (0.000 MB)
-   Section Characteristics: Readable Writable 
-   Section Type: Initialized Data 
-   Section Flags: 0xc0000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .rdata
-   Virtual adress : 0x139264
-   Virtual Size: 20236 bytes (0.019 MB)
-   RVA: 0x22000
-   Offset of raw data: 0x20600 
-   Raw Size: 20480 bytes (0.020 MB)
-   Section Characteristics: Readable 
-   Section Type: Initialized Data 
-   Section Flags: 0x40000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .pdata
-   Virtual adress : 0x159744
-   Virtual Size: 4236 bytes (0.004 MB)
-   RVA: 0x27000
-   Offset of raw data: 0x25600 
-   Raw Size: 4608 bytes (0.004 MB)
-   Section Characteristics: Readable 
-   Section Type: Initialized Data 
-   Section Flags: 0x40000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .xdata
-   Virtual adress : 0x167936
-   Virtual Size: 4768 bytes (0.005 MB)
-   RVA: 0x29000
-   Offset of raw data: 0x26800 
-   Raw Size: 5120 bytes (0.005 MB)
-   Section Characteristics: Readable 
-   Section Type: Initialized Data 
-   Section Flags: 0x40000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .bss
-   Virtual adress : 0x176128
-   Virtual Size: 2832 bytes (0.003 MB)
-   RVA: 0x2b000
-   Offset of raw data: 0x0 
-   Raw Size: 0 bytes (0.000 MB)
-   Section Characteristics: Readable Writable 
-   Section Type: Uninitialized Data 
-   Section Flags: 0xc0000080
-   Base Relocation Table RVA: 0x30000
-
-Section: .edata
-   Virtual adress : 0x180224
-   Virtual Size: 91 bytes (0.000 MB)
-   RVA: 0x2c000
-   Offset of raw data: 0x27c00 
-   Raw Size: 512 bytes (0.000 MB)
-   Section Characteristics: Readable 
-   Section Type: Initialized Data 
-   Section Flags: 0x40000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .idata
-   Virtual adress : 0x184320
-   Virtual Size: 3600 bytes (0.003 MB)
-   RVA: 0x2d000
-   Offset of raw data: 0x27e00 
-   Raw Size: 4096 bytes (0.004 MB)
-   Section Characteristics: Readable Writable 
-   Section Type: Initialized Data 
-   Section Flags: 0xc0000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .CRT
-   Virtual adress : 0x188416
-   Virtual Size: 88 bytes (0.000 MB)
-   RVA: 0x2e000
-   Offset of raw data: 0x28e00 
-   Raw Size: 512 bytes (0.000 MB)
-   Section Characteristics: Readable Writable 
-   Section Type: Initialized Data 
-   Section Flags: 0xc0000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .tls
-   Virtual adress : 0x192512
-   Virtual Size: 16 bytes (0.000 MB)
-   RVA: 0x2f000
-   Offset of raw data: 0x29000 
-   Raw Size: 512 bytes (0.000 MB)
-   Section Characteristics: Readable Writable 
-   Section Type: Initialized Data 
-   Section Flags: 0xc0000040
-   Base Relocation Table RVA: 0x30000
-
-Section: .reloc
-   Virtual adress : 0x196608
-   Virtual Size: 2320 bytes (0.002 MB)
-   RVA: 0x30000
-   Offset of raw data: 0x29200 
-   Raw Size: 2560 bytes (0.002 MB)
-   Section Characteristics: Readable 
-   Section Type: Initialized Data 
-   Section Flags: 0x42000040
-   Base Relocation Table RVA: 0x30000
+FILE HEADER:
+0x0: (uint32_t) Pe signature: 0x4550
+0x4: (uint16_t) Machine: 0x8664
+0x6: (uint16_t) Number of Sections: 20
+0x8: (uint32_t) TimeDateStamp: 653acb80
+0xC: (uint32_t) PointerToSymbolTable: 0x58400
+0x10: (uint32_t) NumberOfSymbols: b7b
+0x14: (uint16_t) SizeOfOptionalHeader: f0
+0x16: (uint16_t) Characteristics: 26
+```
+## optional header
+```
+OPTIONAL HEADER64:
+0x18: (uint16_t) Magic: 0x20b
+0x1A: (uinht8_t) MajorLinkerVersion: 2
+0x1B: (uint16_t) MinorLinkerVersion: 28
+0x1C: (uint32_t) SizeOfCode: 4000
+0x20: (uint32_t) SizeOfInitializedData: 9400
+0x24: (uint32_t) SizeOfUninitializedData: 200
+0x28: (uint32_t) AddressOfEntryPoint: 13f0
+0x2C: (uint32_t) BaseOfCode: 1000
+0x34: (uint64_t) ImageBase: 140000000
+0x38: (uint32_t) SectionAlignment: 1000
+0x3C: (uint32_t) FileAlignment: 200
+0x40: (uint16_t) MajorOperatingSystemVersion: 4
+0x42: (uint16_t) MinorOperatingSystemVersion: 0
+0x44: (uint16_t) MajorImageVersion: 0
+0x46: (uint16_t) MinorImageVersion: 0
+0x48: (uint16_t) MajorSubsystemVersion: 5
+0x4A: (uint16_t) MinorSubsystemVersion: 2
+0x4C: (uint32_t) Reserved1
+0x50: (uint32_t) SizeOfImage: 64000
+0x54: (uint32_t) SizeOfHeaders: 600
+0x58: (uint32_t) CheckSum: 77077
+0x5C: (uint16_t) Subsystem: 3
+0x5E: (uint16_t) DllCharacteristics: 160
+0x60: (uint64_t) SizeOfStackReserve: 200000
+0x68: (uint64_t) SizeOfStackCommit: 1000
+0x70: (uint64_t) SizeOfHeapReserve: 100000
+0x78: (uint64_t) SizeOfHeapCommit: 1000
+0x80: (uint32_t) LoaderFlags: 0
+0x84: (uint32_t) NumberOfRvaAndSizes: 10
+0x88: (uint32_t) ExportDirectory VA: 0
+0x8C: (uint32_t) ExportDirectory Size: 0
+0x90: (uint32_t) ImportDirectory VA: b000
+0x94: (uint32_t) ImportDirectory Size: 1e4c
+0x98: (uint32_t) ResourceDirectory VA: f000
+0x9C: (uint32_t) ResourceDirectory Size: 4e8
+0xA0: (uint32_t) ExceptionDirectory VA: 8000
+0xA4: (uint32_t) ExceptionDirectory Size: 6c0
+0xA8: (uint32_t) SecurityDirectory VA: 0
+0xAC: (uint32_t) SecurityDirectory Size: 0
+0xB0: (uint32_t) BaseRelocationTable VA: 10000
+0xB4: (uint32_t) BaseRelocationTable Size: e8
+0xB8: (uint32_t) DebugDirectory VA: 0
+0xBC: (uint32_t) DebugDirectory Size: 0
+0xC0: (uint32_t) ArchitectureSpecificData VA: 0
+0xC4: (uint32_t) ArchitectureSpecificData Size: 0
+0xC8: (uint32_t) RVAofGP VA: 0
+0xCC: (uint32_t) RVAofGP Size: 0
+0xD0: (uint32_t) TLSDirectory VA: 6560
+0xD4: (uint32_t) TLSDirectory Size: 28
+0xD8: (uint32_t) LoadConfigurationDirectory VA: 0
+0xDC: (uint32_t) LoadConfigurationDirectory Size: 0
+0xE0: (uint32_t) BoundImportDirectoryinheaders VA: 0
+0xE4: (uint32_t) BoundImportDirectoryinheaders Size: 0
+0xE8: (uint32_t) ImportAddressTable VA: b420
+0xEC: (uint32_t) ImportAddressTable Size: 3b8
+0xF0: (uint32_t) DelayLoadImportDescriptors VA: 0
+0xF4: (uint32_t) DelayLoadImportDescriptors Size: 0
+0xF8: (uint32_t) COMRuntimedescriptor VA: 0
+0xFC: (uint32_t) COMRuntimedescriptor Size: 0
+```
+## Import Table:
+```
+ Import Section address: 0xb000
+ Import Table:
+        Address: 0xb7d8         DLL: libgcc_s_seh-1.dll         Function: _Unwind_Resume
+        Address: 0xb7ec         DLL: KERNEL32.dll       Function: DeleteCriticalSection
+        Address: 0xb804         DLL: KERNEL32.dll       Function: EnterCriticalSection
+        Address: 0xb81c         DLL: KERNEL32.dll       Function: GetLastError
+        Address: 0xb82c         DLL: KERNEL32.dll       Function: InitializeCriticalSection
+        Address: 0xb848         DLL: KERNEL32.dll       Function: LeaveCriticalSection
+        Address: 0xb860         DLL: KERNEL32.dll       Function: SetUnhandledExceptionFilter
+        Address: 0xb87e         DLL: KERNEL32.dll       Function: Sleep
+        Address: 0xb886         DLL: KERNEL32.dll       Function: TlsGetValue
+        Address: 0xb894         DLL: KERNEL32.dll       Function: VirtualProtect
+        Address: 0xb8a6         DLL: KERNEL32.dll       Function: VirtualQuery
+        Address: 0xb8b6         DLL: KERNEL32.dll       Function: __C_specific_handler
+        Address: 0xb8ce         DLL: msvcrt.dll         Function: __getmainargs
+        Address: 0xb8de         DLL: msvcrt.dll         Function: __initenv
+        Address: 0xb8ea         DLL: msvcrt.dll         Function: __iob_func
+        Address: 0xb8f8         DLL: msvcrt.dll         Function: __set_app_type
+        Address: 0xb90a         DLL: msvcrt.dll         Function: __setusermatherr
+        Address: 0xb91e         DLL: msvcrt.dll         Function: _amsg_exit
+        Address: 0xb92c         DLL: msvcrt.dll         Function: _cexit
+        Address: 0xb936         DLL: msvcrt.dll         Function: _commode
+        Address: 0xb942         DLL: msvcrt.dll         Function: _fmode
+        Address: 0xb94c         DLL: msvcrt.dll         Function: _initterm
+        Address: 0xb958         DLL: msvcrt.dll         Function: _onexit
+        Address: 0xb962         DLL: msvcrt.dll         Function: abort
+        Address: 0xb96a         DLL: msvcrt.dll         Function: calloc
+        Address: 0xb974         DLL: msvcrt.dll         Function: exit
+        Address: 0xb97c         DLL: msvcrt.dll         Function: fprintf
+        Address: 0xb986         DLL: msvcrt.dll         Function: free
+        Address: 0xb98e         DLL: msvcrt.dll         Function: fwrite
+        Address: 0xb998         DLL: msvcrt.dll         Function: malloc
+        Address: 0xb9a2         DLL: msvcrt.dll         Function: memcmp
+        Address: 0xb9ac         DLL: msvcrt.dll         Function: memcpy
+        Address: 0xb9b6         DLL: msvcrt.dll         Function: signal
+        Address: 0xb9c0         DLL: msvcrt.dll         Function: strlen
+        Address: 0xb9ca         DLL: msvcrt.dll         Function: strncmp
+        Address: 0xb9d4         DLL: msvcrt.dll         Function: vfprintf
+        Address: 0xb9e0         DLL: libstdc++-6.dll    Function: _ZNKSt10filesystem7__cxx1118directory_iteratordeEv
+        Address: 0xba18         DLL: libstdc++-6.dll    Function: _ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE
+        Address: 0xba60         DLL: libstdc++-6.dll    Function: _ZNKSt25__codecvt_utf8_utf16_baseIwE10do_unshiftERiPcS2_RS2_
+        Address: 0xbaa0         DLL: libstdc++-6.dll    Function: _ZNKSt25__codecvt_utf8_utf16_baseIwE11do_encodingEv
+        Address: 0xbad8         DLL: libstdc++-6.dll    Function: _ZNKSt25__codecvt_utf8_utf16_baseIwE13do_max_lengthEv
+        Address: 0xbb10         DLL: libstdc++-6.dll    Function: _ZNKSt25__codecvt_utf8_utf16_baseIwE16do_always_noconvEv
+        Address: 0xbb4c         DLL: libstdc++-6.dll    Function: _ZNKSt25__codecvt_utf8_utf16_baseIwE5do_inERiPKcS3_RS3_PwS5_RS5_
+        Address: 0xbb90         DLL: libstdc++-6.dll    Function: _ZNKSt25__codecvt_utf8_utf16_baseIwE6do_outERiPKwS3_RS3_PcS5_RS5_
+        Address: 0xbbd4         DLL: libstdc++-6.dll    Function: _ZNKSt25__codecvt_utf8_utf16_baseIwE9do_lengthERiPKcS3_y
+        Address: 0xbc10         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv
+        Address: 0xbc50         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv
+        Address: 0xbc90         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_y
+        Address: 0xbcd8         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv
+        Address: 0xbd18         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv
+        Address: 0xbd5c         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv
+        Address: 0xbda0         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv
+        Address: 0xbdf8         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv
+        Address: 0xbe38         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5c_strEv
+        Address: 0xbe7c         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEcvSt17basic_string_viewIwS2_EEv
+        Address: 0xbed4         DLL: libstdc++-6.dll    Function: _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv
+        Address: 0xbf1c         DLL: libstdc++-6.dll    Function: _ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv
+        Address: 0xbf4c         DLL: libstdc++-6.dll    Function: _ZNSolsEPFRSoS_E
+        Address: 0xbf60         DLL: libstdc++-6.dll    Function: _ZNSolsEi
+        Address: 0xbf6c         DLL: libstdc++-6.dll    Function: _ZNSt10filesystem6statusERKNS_7__cxx114pathE
+        Address: 0xbf9c         DLL: libstdc++-6.dll    Function: _ZNSt10filesystem7__cxx1116filesystem_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code
+        Address: 0xc014         DLL: libstdc++-6.dll    Function: _ZNSt10filesystem7__cxx1116filesystem_errorD1Ev
+        Address: 0xc048         DLL: libstdc++-6.dll    Function: _ZNSt10filesystem7__cxx1118directory_iteratorC1ERKNS0_4pathENS_17directory_optionsEPSt10error_code
+        Address: 0xc0b0         DLL: libstdc++-6.dll    Function: _ZNSt10filesystem7__cxx1118directory_iteratorppEv
+        Address: 0xc0e4         DLL: libstdc++-6.dll    Function: _ZNSt10filesystem7__cxx114path14_M_split_cmptsEv
+        Address: 0xc118         DLL: libstdc++-6.dll    Function: _ZNSt10filesystem7__cxx114path5_ListC1Ev
+        Address: 0xc144         DLL: libstdc++-6.dll    Function: _ZNSt12__shared_ptrINSt10filesystem7__cxx114_DirELN9__gnu_cxx12_Lock_policyE2EEC1EOS5_
+        Address: 0xc1a0         DLL: libstdc++-6.dll    Function: _ZNSt12__shared_ptrINSt10filesystem7__cxx114_DirELN9__gnu_cxx12_Lock_policyE2EEC1Ev
+        Address: 0xc1f8         DLL: libstdc++-6.dll    Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKwSt13_Ios_Openmode
+        Address: 0xc23c         DLL: libstdc++-6.dll    Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev
+        Address: 0xc270         DLL: libstdc++-6.dll    Function: _ZNSt25__codecvt_utf8_utf16_baseIwED2Ev
+        Address: 0xc29c         DLL: libstdc++-6.dll    Function: _ZNSt3_V216generic_categoryEv
+        Address: 0xc2bc         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv
+        Address: 0xc304         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEy
+        Address: 0xc34c         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_
+        Address: 0xc39c         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv
+        Address: 0xc3e8         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEy
+        Address: 0xc434         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_
+        Address: 0xc484         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv
+        Address: 0xc4c4         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv
+        Address: 0xc504         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5frontEv
+        Address: 0xc544         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEy
+        Address: 0xc588         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc
+        Address: 0xc5cc         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERyy
+        Address: 0xc614         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_
+        Address: 0xc654         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_
+        Address: 0xc694         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev
+        Address: 0xc6d0         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+        Address: 0xc70c         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4backEv
+        Address: 0xc74c         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv
+        Address: 0xc78c         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5frontEv
+        Address: 0xc7cc         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEy
+        Address: 0xc810         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1EOS4_
+        Address: 0xc850         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev
+        Address: 0xc88c         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev
+        Address: 0xc8c8         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev
+        Address: 0xc90c         DLL: libstdc++-6.dll    Function: _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev
+        Address: 0xc950         DLL: libstdc++-6.dll    Function: _ZNSt7codecvtIwciEC2Ey
+        Address: 0xc96c         DLL: libstdc++-6.dll    Function: _ZSt19__throw_logic_errorPKc
+        Address: 0xc98c         DLL: libstdc++-6.dll    Function: _ZSt3cin
+        Address: 0xc998         DLL: libstdc++-6.dll    Function: _ZSt4cout
+        Address: 0xc9a4         DLL: libstdc++-6.dll    Function: _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+        Address: 0xc9e4         DLL: libstdc++-6.dll    Function: _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE
+        Address: 0xca50         DLL: libstdc++-6.dll    Function: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        Address: 0xca8c         DLL: libstdc++-6.dll    Function: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c
+        Address: 0xcac4         DLL: libstdc++-6.dll    Function: _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE
+        Address: 0xcb2c         DLL: libstdc++-6.dll    Function: _ZTVN10__cxxabiv117__class_type_infoE
+        Address: 0xcb54         DLL: libstdc++-6.dll    Function: _ZTVN10__cxxabiv120__si_class_type_infoE
+        Address: 0xcb80         DLL: libstdc++-6.dll    Function: _ZTVN10__cxxabiv121__vmi_class_type_infoE
+        Address: 0xcbac         DLL: libstdc++-6.dll    Function: _ZTVSt25__codecvt_utf8_utf16_baseIwE
+        Address: 0xcbd4         DLL: libstdc++-6.dll    Function: _ZdlPvy
+        Address: 0xcbe0         DLL: libstdc++-6.dll    Function: __cxa_allocate_exception
+        Address: 0xcbfc         DLL: libstdc++-6.dll    Function: __cxa_free_exception
+        Address: 0xcc14         DLL: libstdc++-6.dll    Function: __cxa_throw
+        Address: 0xcc24         DLL: libstdc++-6.dll    Function: __gxx_personality_seh0
 ```
 
-```
-Import Table Address: 0x3a658d000
-Import Table:
-        Address: 0x3a658d4e8                    DLL: dbghelp.dll                Function: SymCleanup
-                Address: 0x3a658d4f6                    DLL: dbghelp.dll                Function: SymEnumSymbols
-                Address: 0x3a658d508                    DLL: dbghelp.dll                Function: SymInitialize
-                Address: 0x3a658d518                    DLL: dbghelp.dll                Function: SymLoadModuleEx
-                Address: 0x3a658d52a                    DLL: dbghelp.dll                Function: SymUnloadModule64
-                Address: 0x3a658d540                    DLL: libgcc_s_seh-1.dll                 Function: _Unwind_Resume
-                Address: 0x3a658d554                    DLL: KERNEL32.dll               Function: CloseHandle
-                Address: 0x3a658d562                    DLL: KERNEL32.dll               Function: CreateFileA
-                Address: 0x3a658d570                    DLL: KERNEL32.dll               Function: DeleteCriticalSection
-                Address: 0x3a658d588                    DLL: KERNEL32.dll               Function: EnterCriticalSection
-                Address: 0x3a658d5a0                    DLL: KERNEL32.dll               Function: GetCurrentProcess
-                Address: 0x3a658d5b4                    DLL: KERNEL32.dll               Function: GetFileSize
-                Address: 0x3a658d5c2                    DLL: KERNEL32.dll               Function: GetLastError
-                Address: 0x3a658d5d2                    DLL: KERNEL32.dll               Function: InitializeCriticalSection
-                Address: 0x3a658d5ee                    DLL: KERNEL32.dll               Function: LeaveCriticalSection
-                Address: 0x3a658d606                    DLL: KERNEL32.dll               Function: ReadFile
-                Address: 0x3a658d612                    DLL: KERNEL32.dll               Function: Sleep
-                Address: 0x3a658d61a                    DLL: KERNEL32.dll               Function: TlsGetValue
-                Address: 0x3a658d628                    DLL: KERNEL32.dll               Function: VirtualProtect
-                Address: 0x3a658d63a                    DLL: KERNEL32.dll               Function: VirtualQuery
-                Address: 0x3a658d64a                    DLL: msvcrt.dll                 Function: __iob_func
-                Address: 0x3a658d658                    DLL: msvcrt.dll                 Function: _amsg_exit
-                Address: 0x3a658d666                    DLL: msvcrt.dll                 Function: _initterm
-                Address: 0x3a658d672                    DLL: msvcrt.dll                 Function: _lock
-                Address: 0x3a658d67a                    DLL: msvcrt.dll                 Function: _unlock
-                Address: 0x3a658d684                    DLL: msvcrt.dll                 Function: abort
-                Address: 0x3a658d68c                    DLL: msvcrt.dll                 Function: calloc
-                Address: 0x3a658d696                    DLL: msvcrt.dll                 Function: free
-                Address: 0x3a658d69e                    DLL: msvcrt.dll                 Function: fwrite
-                Address: 0x3a658d6a8                    DLL: msvcrt.dll                 Function: memcpy
-                Address: 0x3a658d6b2                    DLL: msvcrt.dll                 Function: realloc
-                Address: 0x3a658d6bc                    DLL: msvcrt.dll                 Function: strcpy
-                Address: 0x3a658d6c6                    DLL: msvcrt.dll                 Function: strlen
-                Address: 0x3a658d6d0                    DLL: msvcrt.dll                 Function: strncmp
-                Address: 0x3a658d6da                    DLL: msvcrt.dll                 Function: vfprintf
-                Address: 0x3a658d6e8                    DLL: libstdc++-6.dll            Function: _ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv
-                Address: 0x3a658d718                    DLL: libstdc++-6.dll            Function: _ZNSolsEPFRSoS_E
-                Address: 0x3a658d72c                    DLL: libstdc++-6.dll            Function: _ZNSolsEPFRSt8ios_baseS0_E
-                Address: 0x3a658d74c                    DLL: libstdc++-6.dll            Function: _ZNSolsEd
-                Address: 0x3a658d758                    DLL: libstdc++-6.dll            Function: _ZNSolsEi
-                Address: 0x3a658d764                    DLL: libstdc++-6.dll            Function: _ZNSolsEm
-                Address: 0x3a658d770                    DLL: libstdc++-6.dll            Function: _ZNSolsEt
-                Address: 0x3a658d77c                    DLL: libstdc++-6.dll            Function: _ZNSolsEy
-                Address: 0x3a658d788                    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv
-                Address: 0x3a658d7c0                    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode
-                Address: 0x3a658d804                    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev
-                Address: 0x3a658d838                    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv
-                Address: 0x3a658d870                    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv
-                Address: 0x3a658d8a8                    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode
-                Address: 0x3a658d8ec                    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev
-                Address: 0x3a658d920                    DLL: libstdc++-6.dll            Function: _ZSt17__throw_bad_allocv
-                Address: 0x3a658d93c                    DLL: libstdc++-6.dll            Function: _ZSt20__throw_length_errorPKc
-                Address: 0x3a658d95c                    DLL: libstdc++-6.dll            Function: _ZSt28__throw_bad_array_new_lengthv
-                Address: 0x3a658d984                    DLL: libstdc++-6.dll            Function: _ZSt4cerr
-                Address: 0x3a658d990                    DLL: libstdc++-6.dll            Function: _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-                Address: 0x3a658d9d0                    DLL: libstdc++-6.dll            Function: _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE
-                Address: 0x3a658da3c                    DLL: libstdc++-6.dll            Function: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-                Address: 0x3a658da78                    DLL: libstdc++-6.dll            Function: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKh
-                Address: 0x3a658dab4                    DLL: libstdc++-6.dll            Function: _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision
-                Address: 0x3a658db00                    DLL: libstdc++-6.dll            Function: _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw
-                Address: 0x3a658db44                    DLL: libstdc++-6.dll            Function: _ZdaPv
-                Address: 0x3a658db50                    DLL: libstdc++-6.dll            Function: _ZdlPv
-                Address: 0x3a658db5c                    DLL: libstdc++-6.dll            Function: _ZdlPvy
-                Address: 0x3a658db68                    DLL: libstdc++-6.dll            Function: _Znay
-                Address: 0x3a658db70                    DLL: libstdc++-6.dll            Function: _Znwy
-                Address: 0x3a658db78                    DLL: libstdc++-6.dll            Function: __gxx_personality_seh0
-        Number of Functions: 66
-```
-```
-Export Table Address: 0x3a658c000
-Export Table:
-        DLL Name: libpe64.dll
-        Number of Functions: 63
-        Number of Names: 63
-        Address: 0x3a6581380            Ordinal: 1              Function: All
-                Address: 0x3a65832dc            Ordinal: 2              Function: OptionalHeader
-                Address: 0x3a65828a0            Ordinal: 3              Function: PrintOptionalHeader
-                Address: 0x3a65853f0            Ordinal: 4              Function: _ZN9__gnu_cxx11char_traitsIcE4copyEPcPKcy
-                Address: 0x3a6585480            Ordinal: 5              Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv
-                Address: 0x3a65854e0            Ordinal: 6              Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv
-                Address: 0x3a6585510            Ordinal: 7              Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv
-                Address: 0x3a6585520            Ordinal: 8              Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv
-                Address: 0x3a6585540            Ordinal: 9              Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv
-                Address: 0x3a6585560            Ordinal: 10             Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv
-                Address: 0x3a6585580            Ordinal: 11             Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv
-                Address: 0x3a65855a0            Ordinal: 12             Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv
-                Address: 0x3a65855e0            Ordinal: 13             Function: _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv
-                Address: 0x3a6585610            Ordinal: 14             Function: _ZNSt11char_traitsIcE4copyEPcPKcy
-                Address: 0x3a6585680            Ordinal: 15             Function: _ZNSt11char_traitsIcE6assignERcRKc
-                Address: 0x3a65856c0            Ordinal: 16             Function: _ZNSt15__new_allocatorIcE10deallocateEPcy
-                Address: 0x3a65856f0            Ordinal: 17             Function: _ZNSt15__new_allocatorIcE8allocateEyPKv
-                Address: 0x3a6585750            Ordinal: 18             Function: _ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_
-                Address: 0x3a6585770            Ordinal: 19             Function: _ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc
-                Address: 0x3a6585790            Ordinal: 20             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEy
-                Address: 0x3a6585830            Ordinal: 21             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv
-                Address: 0x3a6585870            Ordinal: 22             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEy
-                Address: 0x3a6585890            Ordinal: 23             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcOS3_
-                Address: 0x3a65858e0            Ordinal: 24             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD1Ev
-                Address: 0x3a6585900            Ordinal: 25             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv
-                Address: 0x3a6585930            Ordinal: 26             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEy
-                Address: 0x3a6585980            Ordinal: 27             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv
-                Address: 0x3a6585990            Ordinal: 28             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_
-                Address: 0x3a6585be0            Ordinal: 29             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc
-                Address: 0x3a6585c00            Ordinal: 30             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcy
-                Address: 0x3a6585c50            Ordinal: 31             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_
-                Address: 0x3a6585d50            Ordinal: 32             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERyy
-                Address: 0x3a6585e70            Ordinal: 33             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEy
-                Address: 0x3a6585e90            Ordinal: 34             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev
-                Address: 0x3a6585f30            Ordinal: 35             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
-                Address: 0x3a6585f60            Ordinal: 36             Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_
-                Address: 0x3a6585f90            Ordinal: 37             Function: _ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_
-                Address: 0x3a6586000            Ordinal: 38             Function: _ZSt11__addressofIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPT_RS7_
-                Address: 0x3a6586010            Ordinal: 39             Function: _ZSt11__addressofIKcEPT_RS1_
-                Address: 0x3a6586020            Ordinal: 40             Function: _ZSt11__addressofIcEPT_RS0_
-                Address: 0x3a6586030            Ordinal: 41             Function: _ZSt12construct_atIcJRKcEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS3_DpOS4_
-                Address: 0x3a6586080            Ordinal: 42             Function: _ZSt12setprecisioni
-                Address: 0x3a6586090            Ordinal: 43             Function: _ZSt21is_constant_evaluatedv
-                Address: 0x3a65860a0            Ordinal: 44             Function: _ZSt23__is_constant_evaluatedv
-                Address: 0x3a65860b0            Ordinal: 45             Function: _ZSt3decRSt8ios_base
-                Address: 0x3a65860e0            Ordinal: 46             Function: _ZSt3hexRSt8ios_base
-                Address: 0x3a6586110            Ordinal: 47             Function: _ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_
-                Address: 0x3a6586120            Ordinal: 48             Function: _ZSt4setwi
-                Address: 0x3a6586130            Ordinal: 49             Function: _ZSt5fixedRSt8ios_base
-                Address: 0x3a6586160            Ordinal: 50             Function: _ZSt7forwardIRKcEOT_RNSt16remove_referenceIS2_E4typeE
-                Address: 0x3a6586170            Ordinal: 51             Function: _ZSt9addressofIKcEPT_RS1_
-                Address: 0x3a6586190            Ordinal: 52             Function: _ZSt9addressofIcEPT_RS0_
-                Address: 0x3a65861b0            Ordinal: 53             Function: _ZStaNRSt13_Ios_FmtflagsS_
-                Address: 0x3a65861e0            Ordinal: 54             Function: _ZStanSt13_Ios_FmtflagsS_
-                Address: 0x3a6586200            Ordinal: 55             Function: _ZStcoSt13_Ios_Fmtflags
-                Address: 0x3a6586210            Ordinal: 56             Function: _ZStoRRSt13_Ios_FmtflagsS_
-                Address: 0x3a6586240            Ordinal: 57             Function: _ZStorSt13_Ios_FmtflagsS_
-                Address: 0x3a6586260            Ordinal: 58             Function: _ZnwyPv
-                Address: 0x3a65834e0            Ordinal: 59             Function: edata
-                Address: 0x3a6581c90            Ordinal: 60             Function: header
-                Address: 0x3a65814f0            Ordinal: 61             Function: idata
-                Address: 0x3a65813a3            Ordinal: 62             Function: pathfile
-                Address: 0x3a6583fb9            Ordinal: 63             Function: symbol
-```
-```
-Module: 
-Base: 0x3a6580000
-Size: 323584 bytes
-Loaded:
-Type: 4
-
-Name: All
-Address: 0x3a6581380
-Size: 35 bytes
-
-Name: pathfile
-Address: 0x3a65813a3
-Size: 333 bytes
-
-Name: idata
-Address: 0x3a65814f0
-Size: 1952 bytes
-
-Name: header
-Address: 0x3a6581c90
-Size: 3088 bytes
-
-Name: PrintOptionalHeader
-Address: 0x3a65828a0
-Size: 2620 bytes
-
-Name: OptionalHeader
-Address: 0x3a65832dc
-Size: 516 bytes
-
-Name: edata
-Address: 0x3a65834e0
-Size: 2777 bytes
-
-Name: symbol
-Address: 0x3a6583fb9
-Size: 5175 bytes
-
-Name: ZN9__gnu_cxx11char_traitsIcE4copyEPcPKcy
-Address: 0x3a65853f0
-Size: 144 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv
-Address: 0x3a6585480
-Size: 96 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv
-Address: 0x3a65854e0
-Size: 48 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv
-Address: 0x3a6585510
-Size: 16 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv
-Address: 0x3a6585520
-Size: 32 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv
-Address: 0x3a6585540
-Size: 32 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv
-Address: 0x3a6585560
-Size: 32 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv
-Address: 0x3a6585580
-Size: 32 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv
-Address: 0x3a65855a0
-Size: 64 bytes
-
-Name: ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv
-Address: 0x3a65855e0
-Size: 48 bytes
-
-Name: ZNSt11char_traitsIcE4copyEPcPKcy
-Address: 0x3a6585610
-Size: 112 bytes
-
-Name: ZNSt11char_traitsIcE6assignERcRKc
-Address: 0x3a6585680
-Size: 64 bytes
-
-Name: ZNSt15__new_allocatorIcE10deallocateEPcy
-Address: 0x3a65856c0
-Size: 48 bytes
-
-Name: ZNSt15__new_allocatorIcE8allocateEyPKv
-Address: 0x3a65856f0
-Size: 96 bytes
-
-Name: ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_
-Address: 0x3a6585750
-Size: 32 bytes
-
-Name: ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc
-Address: 0x3a6585770
-Size: 32 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEy
-Address: 0x3a6585790
-Size: 160 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv
-Address: 0x3a6585830
-Size: 64 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEy
-Address: 0x3a6585870
-Size: 32 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcOS3_
-Address: 0x3a6585890
-Size: 80 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD1Ev
-Address: 0x3a65858e0
-Size: 32 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv
-Address: 0x3a6585900
-Size: 48 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEy
-Address: 0x3a6585930
-Size: 80 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv
-Address: 0x3a6585980
-Size: 16 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_
-Address: 0x3a6585990
-Size: 592 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc
-Address: 0x3a6585be0
-Size: 32 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcy
-Address: 0x3a6585c00
-Size: 80 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_
-Address: 0x3a6585c50
-Size: 256 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERyy
-Address: 0x3a6585d50
-Size: 288 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEy
-Address: 0x3a6585e70
-Size: 32 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev
-Address: 0x3a6585e90
-Size: 160 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
-Address: 0x3a6585f30
-Size: 48 bytes
-
-Name: ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_
-Address: 0x3a6585f60
-Size: 48 bytes
-
-Name: ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_
-Address: 0x3a6585f90
-Size: 112 bytes
-
-Name: ZSt11__addressofIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPT_RS7_
-Address: 0x3a6586000
-Size: 16 bytes
-
-Name: ZSt11__addressofIKcEPT_RS1_
-Address: 0x3a6586010
-Size: 16 bytes
-
-Name: ZSt11__addressofIcEPT_RS0_
-Address: 0x3a6586020
-Size: 16 bytes
-
-Name: ZSt12construct_atIcJRKcEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS3_DpOS4_
-Address: 0x3a6586030
-Size: 80 bytes
-
-Name: ZSt12setprecisioni
-Address: 0x3a6586080
-Size: 16 bytes
-
-Name: ZSt21is_constant_evaluatedv
-Address: 0x3a6586090
-Size: 16 bytes
-
-Name: ZSt23__is_constant_evaluatedv
-Address: 0x3a65860a0
-Size: 16 bytes
-
-Name: ZSt3decRSt8ios_base
-Address: 0x3a65860b0
-Size: 48 bytes
-
-Name: ZSt3hexRSt8ios_base
-Address: 0x3a65860e0
-Size: 48 bytes
-
-Name: ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_
-Address: 0x3a6586110
-Size: 16 bytes
-
-Name: ZSt4setwi
-Address: 0x3a6586120
-Size: 16 bytes
-
-Name: ZSt5fixedRSt8ios_base
-Address: 0x3a6586130
-Size: 48 bytes
-
-Name: ZSt7forwardIRKcEOT_RNSt16remove_referenceIS2_E4typeE
-Address: 0x3a6586160
-Size: 16 bytes
-
-Name: ZSt9addressofIKcEPT_RS1_
-Address: 0x3a6586170
-Size: 32 bytes
-
-Name: ZSt9addressofIcEPT_RS0_
-Address: 0x3a6586190
-Size: 32 bytes
-
-Name: ZStaNRSt13_Ios_FmtflagsS_
-Address: 0x3a65861b0
-Size: 48 bytes
-
-Name: ZStanSt13_Ios_FmtflagsS_
-Address: 0x3a65861e0
-Size: 32 bytes
-
-Name: ZStcoSt13_Ios_Fmtflags
-Address: 0x3a6586200
-Size: 16 bytes
-
-Name: ZStoRRSt13_Ios_FmtflagsS_
-Address: 0x3a6586210
-Size: 48 bytes
-
-Name: ZStorSt13_Ios_FmtflagsS_
-Address: 0x3a6586240
-Size: 32 bytes
-
-Name: ZnwyPv
-Address: 0x3a6586260
-Size: 0 bytes
-```
