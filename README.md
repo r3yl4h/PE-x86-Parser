@@ -233,16 +233,20 @@ OPTIONAL HEADER64:
 ```
 ## export table
 ```
----------------------------------------------------------------------------------------
- Export Section address: 0x2e000
-        Function: extrn_pars    Ordinal: 1      Address: 0x5227
-        Function: extrn_pars32  Ordinal: 2      Address: 0x5288
-        Function: symbole       Ordinal: 3      Address: 0x12363
+-------------------------------------------------------------------------------------------------
+Export Table Address: 0x2e000
+Export Table:
+        DLL Name: libpe64.dll
+        Number of Functions: 3
+        Number of Names: 3
+        Address: 0x146b                 Ordinal: 1              Function: extrn_pars
+                Address: 0x14a8                 Ordinal: 2              Function: extrn_pars32
+                Address: 0x304b                 Ordinal: 3              Function: symbole
 ```
 ## symbol
 ```
-get the symbol?(y|yes): yes
-Module:
+get the symbol?(y|yes):y
+ Module:
   Base: 0x3a6580000
   Size: 544768 bytes
   Loaded:
@@ -253,7 +257,7 @@ Module:
      Address: 0x3a658146b
      Size: 3d bytes - Value: 0
      TagStr: SymTagPublicSymbol
-     Reserved: 0x91f43fb4f8
+     Reserved: 0x5d4fffb8d8
      Scope: 0x0 - NameLen: 0xa
      Flags: 200 - Tag: 0xa
 
@@ -262,7 +266,7 @@ Module:
      Address: 0x3a65814a8
      Size: 1ba3 bytes - Value: 0
      TagStr: SymTagPublicSymbol
-     Reserved: 0x91f43fb4f8
+     Reserved: 0x5d4fffb8d8
      Scope: 0x0 - NameLen: 0xc
      Flags: 200 - Tag: 0xa
 
@@ -271,7 +275,7 @@ Module:
      Address: 0x3a658304b
      Size: 0 bytes - Value: 0
      TagStr: SymTagPublicSymbol
-     Reserved: 0x91f43fb4f8
+     Reserved: 0x5d4fffb8d8
      Scope: 0x0 - NameLen: 0x7
      Flags: 200 - Tag: 0xa
 ```
