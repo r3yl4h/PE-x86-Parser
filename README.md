@@ -5,13 +5,13 @@ PE-x64-parser
 (each file contains a code between unique quotes, this is why certain variables are redefined each time)
 ## dependancies
 you just need to have winapi, cmake and DIA SDK
-### Cmake
+### Cmake:
   * Unix:  `sudo apt-get install cmake`
   * RedHat/Fedora:  `sudo yum install cmake`
   * OSX:  `brew install cmake`
   * Windows : https://cmake.org/download/
-### Dia2
- *https://learn.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/getting-started-debug-interface-access-sdk?view=vs-2022*
+### Dia2:
+ ***https://learn.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/getting-started-debug-interface-access-sdk?view=vs-2022***
  
 and for dia you will just need to include the dia sdk include path to the cmakelist file which is generally located at the path: `C:/Program Files/Microsoft Visual Studio/2022/Professional/DIA SDK/include`
 
