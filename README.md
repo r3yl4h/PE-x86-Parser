@@ -231,4 +231,48 @@ OPTIONAL HEADER64:
         Address: 0xcc14         DLL: libstdc++-6.dll    Function: __cxa_throw
         Address: 0xcc24         DLL: libstdc++-6.dll    Function: __gxx_personality_seh0
 ```
+## export table
+```
+---------------------------------------------------------------------------------------
+ Export Section address: 0x2e000
+        Function: extrn_pars    Ordinal: 1      Address: 0x5227
+        Function: extrn_pars32  Ordinal: 2      Address: 0x5288
+        Function: symbole       Ordinal: 3      Address: 0x12363
+```
+## symbol
+```
+get the symbol?(y|yes): yes
+Module:
+  Base: 0x3a6580000
+  Size: 544768 bytes
+  Loaded:
+  Type: 4
+
+
+ Name: extrn_pars
+     Address: 0x3a658146b
+     Size: 3d bytes - Value: 0
+     TagStr: SymTagPublicSymbol
+     Reserved: 0x91f43fb4f8
+     Scope: 0x0 - NameLen: 0xa
+     Flags: 200 - Tag: 0xa
+
+
+ Name: extrn_pars32
+     Address: 0x3a65814a8
+     Size: 1ba3 bytes - Value: 0
+     TagStr: SymTagPublicSymbol
+     Reserved: 0x91f43fb4f8
+     Scope: 0x0 - NameLen: 0xc
+     Flags: 200 - Tag: 0xa
+
+
+ Name: symbole
+     Address: 0x3a658304b
+     Size: 0 bytes - Value: 0
+     TagStr: SymTagPublicSymbol
+     Reserved: 0x91f43fb4f8
+     Scope: 0x0 - NameLen: 0x7
+     Flags: 200 - Tag: 0xa
+```
 
