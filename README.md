@@ -19,7 +19,7 @@ and for dia you will just need to include the dia sdk include path to the cmakel
 ```
 Usage: Pe_x86_parser.exe <file(s)> <option(s)>
 Option:
--s  --symbols  For get the symbols
+  -s  --symbols  For get the symbols
 ```
 ## dos header
 ```
