@@ -16,7 +16,8 @@ you just need to have winapi, cmake and DIA SDK
 and for dia you will just need to include the dia sdk include path to the cmakelist file which is generally located at the path: `C:/Program Files/Microsoft Visual Studio/2022/Professional/DIA SDK/include`
 
 ## for cli option
-```-s  --symbols  For get the symbols
+```
+-s  --symbols  For get the symbols
 ```
 ## dos header
 ```
