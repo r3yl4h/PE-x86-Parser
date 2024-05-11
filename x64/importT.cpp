@@ -1,19 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <cxxabi.h>
 #include <vector>
 #include <windows.h>
-
-char* demangles(const char* mangledName) {
-    int status;
-    char* demangle = abi::__cxa_demangle(mangledName, nullptr, nullptr, &status);
-    if (status == 0) {
-        return demangle;
-    } else {
-        return nullptr;
-    }
-}
 
 void getImport64(std::ifstream &file) {
     file.seekg(0, std::ios::end);
