@@ -48,15 +48,9 @@ void getExport32(std::ifstream &file) {
                 for (DWORD j = 0; j < exportDir->NumberOfNames; ++j) {
                     DWORD addr_rva = addrFunc[addrOrd[j]];
                     char* funcN = reinterpret_cast<char*>(fileContent.data() + addrNames[j] - sectionHeader[i].VirtualAddress + sectionHeader[i].PointerToRawData);
-                    char* func;
-                    int status;
-                    func = abi::__cxa_demangle(funcN, nullptr, nullptr, &status);
-                    if (!func) {
-                        func = funcN;
-                    }
                     std::cout << "\tAddress: 0x" << std::hex << addr_rva << std::dec << std::setw(20)
                               << "\tOrdinal: " << addrOrd[j] + exportDir->Base << std::setw(20)
-                              << "\tFunction: " << (func ? func : (funcN ? funcN : "Ordinal")) << std::setw(20) << std::endl;
+                              << "\tFunction: " << (funcN ? funcN : "Ordinal") << std::setw(20) << std::endl;
                     if (func != funcN)
                         free(func);
                 }
