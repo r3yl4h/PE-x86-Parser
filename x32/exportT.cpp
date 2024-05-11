@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
-#include <cxxabi.h>
 #include <iomanip>
 
 void getExport32(std::ifstream &file) {
