@@ -14,7 +14,10 @@ int main(int argc, char* argv[]) {
             if (arg == "-s" || arg == "--symbols") {
                 getSymbols = true;
             } else {
-                std::cerr << "Invalid option: " << arg << std::endl;
+                std::cerr << "Usage: Pe_x86_parser.exe <file(s)> <option(s)>\n"
+                             "Option:\n"
+                             "  -s  --symbols  For get the symbols"
+                             "\n  unknow: " << arg << std::endl;
                 return 1;
             }
         }
