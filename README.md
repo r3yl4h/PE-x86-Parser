@@ -1,6 +1,7 @@
 PE-x64-parser
 ========
 
+
 This is a C++ project utilizing WinAPI that parses PE32 and PE64 files. While it may not be the most optimized version, I found it to be an engaging endeavor. You can operate the program by supplying arguments or running it without any, prompting you to input the file path for analysis.
 
 ## dependancies
