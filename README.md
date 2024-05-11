@@ -15,9 +15,12 @@ you just need to have winapi, cmake and DIA SDK
  
 and for dia you will just need to include the dia sdk include path to the cmakelist file which is generally located at the path: `C:/Program Files/Microsoft Visual Studio/2022/Professional/DIA SDK/include`
 
+## for cli option
+```-s  --symbols  For get the symbols
+```
 ## dos header
 ```
-C:\code\cpp\Pe_x86_parser\cmake-build-debug>.\Pe_x86_parser "C:\code\cpp\libpe64\cmake-build-debug\libpe64.dll"
+C:\code\cpp\Pe_x86_parser\cmake-build-debug>.\Pe_x86_parser "C:\code\cpp\libpe64\cmake-build-debug\libpe64.dll" -s
 DOS HEADER:
 0x00: (uint16_t) Magic Number MZ: 0x5a4d
 0x02: (uint16_t) Bytes on last page of file: 90
@@ -284,84 +287,84 @@ SECTION TABLE:
 ```
  Import Section address: 0x2f000
  Import Table:
-        Address: 0x2f5a8        DLL: dbghelp.dll        Function: SymCleanup
-        Address: 0x2f5b6        DLL: dbghelp.dll        Function: SymEnumSymbols
-        Address: 0x2f5c8        DLL: dbghelp.dll        Function: SymGetModuleInfo64
-        Address: 0x2f5de        DLL: dbghelp.dll        Function: SymInitialize
-        Address: 0x2f5ee        DLL: dbghelp.dll        Function: SymLoadModuleEx
-        Address: 0x2f600        DLL: dbghelp.dll        Function: SymUnloadModule64
-        Address: 0x2f614        DLL: libgcc_s_seh-1.dll         Function: _Unwind_Resume
-        Address: 0x2f628        DLL: KERNEL32.dll       Function: CloseHandle
-        Address: 0x2f636        DLL: KERNEL32.dll       Function: CreateFileA
-        Address: 0x2f644        DLL: KERNEL32.dll       Function: DeleteCriticalSection
-        Address: 0x2f65c        DLL: KERNEL32.dll       Function: EnterCriticalSection
-        Address: 0x2f674        DLL: KERNEL32.dll       Function: GetCurrentProcess
-        Address: 0x2f688        DLL: KERNEL32.dll       Function: GetFileSize
-        Address: 0x2f696        DLL: KERNEL32.dll       Function: GetLastError
-        Address: 0x2f6a6        DLL: KERNEL32.dll       Function: InitializeCriticalSection
-        Address: 0x2f6c2        DLL: KERNEL32.dll       Function: IsDBCSLeadByteEx
-        Address: 0x2f6d6        DLL: KERNEL32.dll       Function: LeaveCriticalSection
-        Address: 0x2f6ee        DLL: KERNEL32.dll       Function: MultiByteToWideChar
-        Address: 0x2f704        DLL: KERNEL32.dll       Function: ReadFile
-        Address: 0x2f710        DLL: KERNEL32.dll       Function: Sleep
-        Address: 0x2f718        DLL: KERNEL32.dll       Function: TlsGetValue
-        Address: 0x2f726        DLL: KERNEL32.dll       Function: VirtualProtect
-        Address: 0x2f738        DLL: KERNEL32.dll       Function: VirtualQuery
-        Address: 0x2f748        DLL: KERNEL32.dll       Function: WideCharToMultiByte
-        Address: 0x2f75e        DLL: msvcrt.dll         Function: ___lc_codepage_func
-        Address: 0x2f774        DLL: msvcrt.dll         Function: ___mb_cur_max_func
-        Address: 0x2f78a        DLL: msvcrt.dll         Function: __iob_func
-        Address: 0x2f798        DLL: msvcrt.dll         Function: _amsg_exit
-        Address: 0x2f7a6        DLL: msvcrt.dll         Function: _errno
-        Address: 0x2f7b0        DLL: msvcrt.dll         Function: _initterm
-        Address: 0x2f7bc        DLL: msvcrt.dll         Function: _lock
-        Address: 0x2f7c4        DLL: msvcrt.dll         Function: _unlock
-        Address: 0x2f7ce        DLL: msvcrt.dll         Function: abort
-        Address: 0x2f7d6        DLL: msvcrt.dll         Function: calloc
-        Address: 0x2f7e0        DLL: msvcrt.dll         Function: fputc
-        Address: 0x2f7e8        DLL: msvcrt.dll         Function: free
-        Address: 0x2f7f0        DLL: msvcrt.dll         Function: fwrite
-        Address: 0x2f7fa        DLL: msvcrt.dll         Function: isxdigit
-        Address: 0x2f806        DLL: msvcrt.dll         Function: localeconv
-        Address: 0x2f814        DLL: msvcrt.dll         Function: malloc
-        Address: 0x2f81e        DLL: msvcrt.dll         Function: memchr
-        Address: 0x2f828        DLL: msvcrt.dll         Function: memcpy
-        Address: 0x2f832        DLL: msvcrt.dll         Function: memmove
-        Address: 0x2f83c        DLL: msvcrt.dll         Function: memset
-        Address: 0x2f846        DLL: msvcrt.dll         Function: realloc
-        Address: 0x2f850        DLL: msvcrt.dll         Function: strerror
-        Address: 0x2f85c        DLL: msvcrt.dll         Function: strlen
-        Address: 0x2f866        DLL: msvcrt.dll         Function: strncmp
-        Address: 0x2f870        DLL: msvcrt.dll         Function: vfprintf
-        Address: 0x2f87c        DLL: msvcrt.dll         Function: wcslen
-        Address: 0x2f888        DLL: libstdc++-6.dll    Function: _ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv
-        Address: 0x2f8b8        DLL: libstdc++-6.dll    Function: _ZNSolsEPFRSoS_E
-        Address: 0x2f8cc        DLL: libstdc++-6.dll    Function: _ZNSolsEPFRSt8ios_baseS0_E
-        Address: 0x2f8ec        DLL: libstdc++-6.dll    Function: _ZNSolsEi
-        Address: 0x2f8f8        DLL: libstdc++-6.dll    Function: _ZNSolsEm
-        Address: 0x2f904        DLL: libstdc++-6.dll    Function: _ZNSolsEt
-        Address: 0x2f910        DLL: libstdc++-6.dll    Function: _ZNSolsEy
-        Address: 0x2f91c        DLL: libstdc++-6.dll    Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode
-        Address: 0x2f960        DLL: libstdc++-6.dll    Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev
-        Address: 0x2f994        DLL: libstdc++-6.dll    Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv
-        Address: 0x2f9cc        DLL: libstdc++-6.dll    Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode
-        Address: 0x2fa10        DLL: libstdc++-6.dll    Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev
-        Address: 0x2fa44        DLL: libstdc++-6.dll    Function: _ZSt17__throw_bad_allocv
-        Address: 0x2fa60        DLL: libstdc++-6.dll    Function: _ZSt20__throw_length_errorPKc
-        Address: 0x2fa80        DLL: libstdc++-6.dll    Function: _ZSt28__throw_bad_array_new_lengthv
-        Address: 0x2faa8        DLL: libstdc++-6.dll    Function: _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-        Address: 0x2fae8        DLL: libstdc++-6.dll    Function: _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE
-        Address: 0x2fb54        DLL: libstdc++-6.dll    Function: _ZSt9terminatev
-        Address: 0x2fb68        DLL: libstdc++-6.dll    Function: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-        Address: 0x2fba4        DLL: libstdc++-6.dll    Function: _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw
-        Address: 0x2fbe8        DLL: libstdc++-6.dll    Function: _ZTVN10__cxxabiv117__class_type_infoE
-        Address: 0x2fc10        DLL: libstdc++-6.dll    Function: _ZTVN10__cxxabiv120__si_class_type_infoE
-        Address: 0x2fc3c        DLL: libstdc++-6.dll    Function: _ZdaPv
-        Address: 0x2fc48        DLL: libstdc++-6.dll    Function: _ZdlPv
-        Address: 0x2fc54        DLL: libstdc++-6.dll    Function: _ZdlPvy
-        Address: 0x2fc60        DLL: libstdc++-6.dll    Function: _Znay
-        Address: 0x2fc68        DLL: libstdc++-6.dll    Function: _Znwy
-        Address: 0x2fc70        DLL: libstdc++-6.dll    Function: __gxx_personality_seh0
+        Address: 0x3a65af5a8    DLL: dbghelp.dll                Function: SymCleanup
+        Address: 0x3a65af5b6    DLL: dbghelp.dll                Function: SymEnumSymbols
+        Address: 0x3a65af5c8    DLL: dbghelp.dll                Function: SymGetModuleInfo64
+        Address: 0x3a65af5de    DLL: dbghelp.dll                Function: SymInitialize
+        Address: 0x3a65af5ee    DLL: dbghelp.dll                Function: SymLoadModuleEx
+        Address: 0x3a65af600    DLL: dbghelp.dll                Function: SymUnloadModule64
+        Address: 0x3a65af614    DLL: libgcc_s_seh-1.dll         Function: _Unwind_Resume
+        Address: 0x3a65af628    DLL: KERNEL32.dll               Function: CloseHandle
+        Address: 0x3a65af636    DLL: KERNEL32.dll               Function: CreateFileA
+        Address: 0x3a65af644    DLL: KERNEL32.dll               Function: DeleteCriticalSection
+        Address: 0x3a65af65c    DLL: KERNEL32.dll               Function: EnterCriticalSection
+        Address: 0x3a65af674    DLL: KERNEL32.dll               Function: GetCurrentProcess
+        Address: 0x3a65af688    DLL: KERNEL32.dll               Function: GetFileSize
+        Address: 0x3a65af696    DLL: KERNEL32.dll               Function: GetLastError
+        Address: 0x3a65af6a6    DLL: KERNEL32.dll               Function: InitializeCriticalSection
+        Address: 0x3a65af6c2    DLL: KERNEL32.dll               Function: IsDBCSLeadByteEx
+        Address: 0x3a65af6d6    DLL: KERNEL32.dll               Function: LeaveCriticalSection
+        Address: 0x3a65af6ee    DLL: KERNEL32.dll               Function: MultiByteToWideChar
+        Address: 0x3a65af704    DLL: KERNEL32.dll               Function: ReadFile
+        Address: 0x3a65af710    DLL: KERNEL32.dll               Function: Sleep
+        Address: 0x3a65af718    DLL: KERNEL32.dll               Function: TlsGetValue
+        Address: 0x3a65af726    DLL: KERNEL32.dll               Function: VirtualProtect
+        Address: 0x3a65af738    DLL: KERNEL32.dll               Function: VirtualQuery
+        Address: 0x3a65af748    DLL: KERNEL32.dll               Function: WideCharToMultiByte
+        Address: 0x3a65af75e    DLL: msvcrt.dll                 Function: ___lc_codepage_func
+        Address: 0x3a65af774    DLL: msvcrt.dll                 Function: ___mb_cur_max_func
+        Address: 0x3a65af78a    DLL: msvcrt.dll                 Function: __iob_func
+        Address: 0x3a65af798    DLL: msvcrt.dll                 Function: _amsg_exit
+        Address: 0x3a65af7a6    DLL: msvcrt.dll                 Function: _errno
+        Address: 0x3a65af7b0    DLL: msvcrt.dll                 Function: _initterm
+        Address: 0x3a65af7bc    DLL: msvcrt.dll                 Function: _lock
+        Address: 0x3a65af7c4    DLL: msvcrt.dll                 Function: _unlock
+        Address: 0x3a65af7ce    DLL: msvcrt.dll                 Function: abort
+        Address: 0x3a65af7d6    DLL: msvcrt.dll                 Function: calloc
+        Address: 0x3a65af7e0    DLL: msvcrt.dll                 Function: fputc
+        Address: 0x3a65af7e8    DLL: msvcrt.dll                 Function: free
+        Address: 0x3a65af7f0    DLL: msvcrt.dll                 Function: fwrite
+        Address: 0x3a65af7fa    DLL: msvcrt.dll                 Function: isxdigit
+        Address: 0x3a65af806    DLL: msvcrt.dll                 Function: localeconv
+        Address: 0x3a65af814    DLL: msvcrt.dll                 Function: malloc
+        Address: 0x3a65af81e    DLL: msvcrt.dll                 Function: memchr
+        Address: 0x3a65af828    DLL: msvcrt.dll                 Function: memcpy
+        Address: 0x3a65af832    DLL: msvcrt.dll                 Function: memmove
+        Address: 0x3a65af83c    DLL: msvcrt.dll                 Function: memset
+        Address: 0x3a65af846    DLL: msvcrt.dll                 Function: realloc
+        Address: 0x3a65af850    DLL: msvcrt.dll                 Function: strerror
+        Address: 0x3a65af85c    DLL: msvcrt.dll                 Function: strlen
+        Address: 0x3a65af866    DLL: msvcrt.dll                 Function: strncmp
+        Address: 0x3a65af870    DLL: msvcrt.dll                 Function: vfprintf
+        Address: 0x3a65af87c    DLL: msvcrt.dll                 Function: wcslen
+        Address: 0x3a65af888    DLL: libstdc++-6.dll            Function: _ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv
+        Address: 0x3a65af8b8    DLL: libstdc++-6.dll            Function: _ZNSolsEPFRSoS_E
+        Address: 0x3a65af8cc    DLL: libstdc++-6.dll            Function: _ZNSolsEPFRSt8ios_baseS0_E
+        Address: 0x3a65af8ec    DLL: libstdc++-6.dll            Function: _ZNSolsEi
+        Address: 0x3a65af8f8    DLL: libstdc++-6.dll            Function: _ZNSolsEm
+        Address: 0x3a65af904    DLL: libstdc++-6.dll            Function: _ZNSolsEt
+        Address: 0x3a65af910    DLL: libstdc++-6.dll            Function: _ZNSolsEy
+        Address: 0x3a65af91c    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode
+        Address: 0x3a65af960    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev
+        Address: 0x3a65af994    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv
+        Address: 0x3a65af9cc    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode
+        Address: 0x3a65afa10    DLL: libstdc++-6.dll            Function: _ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev
+        Address: 0x3a65afa44    DLL: libstdc++-6.dll            Function: _ZSt17__throw_bad_allocv
+        Address: 0x3a65afa60    DLL: libstdc++-6.dll            Function: _ZSt20__throw_length_errorPKc
+        Address: 0x3a65afa80    DLL: libstdc++-6.dll            Function: _ZSt28__throw_bad_array_new_lengthv
+        Address: 0x3a65afaa8    DLL: libstdc++-6.dll            Function: _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+        Address: 0x3a65afae8    DLL: libstdc++-6.dll            Function: _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE
+        Address: 0x3a65afb54    DLL: libstdc++-6.dll            Function: _ZSt9terminatev
+        Address: 0x3a65afb68    DLL: libstdc++-6.dll            Function: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        Address: 0x3a65afba4    DLL: libstdc++-6.dll            Function: _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw
+        Address: 0x3a65afbe8    DLL: libstdc++-6.dll            Function: _ZTVN10__cxxabiv117__class_type_infoE
+        Address: 0x3a65afc10    DLL: libstdc++-6.dll            Function: _ZTVN10__cxxabiv120__si_class_type_infoE
+        Address: 0x3a65afc3c    DLL: libstdc++-6.dll            Function: _ZdaPv
+        Address: 0x3a65afc48    DLL: libstdc++-6.dll            Function: _ZdlPv
+        Address: 0x3a65afc54    DLL: libstdc++-6.dll            Function: _ZdlPvy
+        Address: 0x3a65afc60    DLL: libstdc++-6.dll            Function: _Znay
+        Address: 0x3a65afc68    DLL: libstdc++-6.dll            Function: _Znwy
+        Address: 0x3a65afc70    DLL: libstdc++-6.dll            Function: __gxx_personality_seh0
 ```
 ## export table
 ```
@@ -377,8 +380,7 @@ Export Table:
 ```
 ## symbol
 ```
-get the symbol?(y|yes):y
- Module:
+Module:
   Base: 0x3a6580000
   Size: 544768 bytes
   Loaded:
@@ -389,7 +391,7 @@ get the symbol?(y|yes):y
      Address: 0x3a658146b
      Size: 3d bytes - Value: 0
      TagStr: SymTagPublicSymbol
-     Reserved: 0x5d4fffb8d8
+     Reserved: 0x903dbfb368
      Scope: 0x0 - NameLen: 0xa
      Flags: 200 - Tag: 0xa
 
@@ -398,7 +400,7 @@ get the symbol?(y|yes):y
      Address: 0x3a65814a8
      Size: 1ba3 bytes - Value: 0
      TagStr: SymTagPublicSymbol
-     Reserved: 0x5d4fffb8d8
+     Reserved: 0x903dbfb368
      Scope: 0x0 - NameLen: 0xc
      Flags: 200 - Tag: 0xa
 
@@ -407,7 +409,7 @@ get the symbol?(y|yes):y
      Address: 0x3a658304b
      Size: 0 bytes - Value: 0
      TagStr: SymTagPublicSymbol
-     Reserved: 0x5d4fffb8d8
+     Reserved: 0x903dbfb368
      Scope: 0x0 - NameLen: 0x7
      Flags: 200 - Tag: 0xa
 ```
