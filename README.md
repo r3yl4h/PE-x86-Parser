@@ -289,9 +289,6 @@ SECTION TABLE:
 ```
 ## Import Table:
 ```
-
-
-
 dll name : dbghelp.dll
         iat : 0x2f310 - func name : SymCleanup
         iat : 0x2f318 - func name : SymEnumSymbols
