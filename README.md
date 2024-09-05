@@ -392,6 +392,7 @@ Export Func:
         Address : 0x146b - Name : extrn_pars
         Address : 0x14a8 - Name : extrn_pars32
         Address : 0x304b - Name : symbole
+
 ```
 ## symbol
 ```
