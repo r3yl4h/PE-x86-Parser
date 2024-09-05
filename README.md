@@ -49,11 +49,11 @@ DOS HEADER:
 ## file header
 ```
 FILE HEADER:
-0x0: (uint32_t) Pe signature: 0x4550
-0x4: (uint16_t) Machine: 0x8664
-0x6: (uint16_t) Number of Sections: 20
-0x8: (uint32_t) TimeDateStamp: 661dca1b
-0xC: (uint32_t) PointerToSymbolTable: 0x79800
+0x00: (uint32_t) Pe signature: 0x4550
+0x04: (uint16_t) Machine: 0x8664
+0x06: (uint16_t) Number of Sections: 20
+0x08: (uint32_t) TimeDateStamp: 661dca1b
+0x0C: (uint32_t) PointerToSymbolTable: 0x79800
 0x10: (uint32_t) NumberOfSymbols: 1715
 0x14: (uint16_t) SizeOfOptionalHeader: f0
 0x16: (uint16_t) Characteristics: 2026
