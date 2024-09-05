@@ -1,4 +1,4 @@
-PE-x64-parser
+PE-x86-parser
 ========
 
 
