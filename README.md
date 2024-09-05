@@ -380,7 +380,6 @@ dll name : libstdc++-6.dll
         iat : 0x2f588 - func name : _Znay
         iat : 0x2f590 - func name : _Znwy
         iat : 0x2f598 - func name : __gxx_personality_seh0
-
 ```
 ## export table
 ```
