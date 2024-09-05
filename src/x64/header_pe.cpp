@@ -4,8 +4,8 @@
 void print_opt64(IMAGE_OPTIONAL_HEADER64 optionalHeader) {
     std::cout << "\nOPTIONAL HEADER64: " << std::endl;
     std::cout << "0x18: (uint16_t) Magic: 0x" << std::hex << optionalHeader.Magic << std::endl;
-    std::cout << "0x1A: (uinht8_t) MajorLinkerVersion: " << static_cast<int>(optionalHeader.MajorLinkerVersion) << std::endl;
-    std::cout << "0x1B: (uint16_t) MinorLinkerVersion: " << static_cast<int>(optionalHeader.MinorLinkerVersion) << std::endl;
+    std::cout << "0x1A: (uinht8_t) MajorLinkerVersion: " << optionalHeader.MajorLinkerVersion << std::endl;
+    std::cout << "0x1B: (uint16_t) MinorLinkerVersion: " << optionalHeader.MinorLinkerVersion << std::endl;
     std::cout << "0x1C: (uint32_t) SizeOfCode: " << optionalHeader.SizeOfCode << std::endl;
     std::cout << "0x20: (uint32_t) SizeOfInitializedData: " << optionalHeader.SizeOfInitializedData << std::endl;
     std::cout << "0x24: (uint32_t) SizeOfUninitializedData: " << optionalHeader.SizeOfUninitializedData << std::endl;
