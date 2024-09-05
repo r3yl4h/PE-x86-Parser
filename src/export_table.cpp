@@ -44,5 +44,7 @@ void get_export(const IMAGE_DATA_DIRECTORY& edt_entry, const std::vector<IMAGE_S
 			std::cout << std::hex << "\tAddress : 0x" << addr_rva << " - Name : " << name << std::dec << std::endl;
 			delete[] name;
 		}
+		delete[] addr_func;
+		delete[] addr_name;
 	}
 }
