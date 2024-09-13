@@ -22,7 +22,7 @@ int parse_header(std::ifstream& file) {
     IMAGE_DATA_DIRECTORY idt;
     IMAGE_DATA_DIRECTORY edt;
     std::vector<IMAGE_SECTION_HEADER> sectionv;
-    if (file_header.FileHeader.Machine == 0x8664) {
+    if (file_header.FileHeader.Machine == 0x8664 || file_header.FileHeader.Machine == 0x0200) {
         print_opt64(file_header.OptionalHeader);
         sectionv = getSection(file, file_header.FileHeader.NumberOfSections, file_header.FileHeader.PointerToSymbolTable + (file_header.FileHeader.NumberOfSymbols * 18));
         idt = file_header.OptionalHeader.DataDirectory[1];
